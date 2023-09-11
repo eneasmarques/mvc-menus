@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{BEBC48B0-2CB3-4078-8A30-3F2567E1F3E4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Menus.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Menus">
+        <MSBuild Projects="Menus.dproj"/>
+    </Target>
+    <Target Name="Menus:Clean">
+        <MSBuild Projects="Menus.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Menus:Make">
+        <MSBuild Projects="Menus.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Menus"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Menus:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Menus:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
